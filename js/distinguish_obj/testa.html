@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function type(obj) {
+        return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
+    }
+    console.log(type(1));
+    console.log(type("a"));
+    console.log(type(null));
+    console.log(type(undefined));
+    console.log(type([]));
+    console.log(type({}));
+    console.log(type(function () {
+    }));
+    console.log(type(new Date));
+    console.log(type(/\d/));
+    function Point(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    console.log(type(new Point(1, 2)))
+
+
+    var a = new Object();
+    console.log(a);
+
+    var proto = {a: 1, b: 2};
+    var objb = Object.create(proto);
+    console.log(objb);
+
+
+    var c = {};
+    console.log(c.toString());
+</script>
+<input type="file" >
+</body>
+</html>

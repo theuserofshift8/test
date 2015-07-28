@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var x = 0;
+        function a() {
+            alert(x);
+        }
+        function b() {
+            console.log(x);
+            var x = 10;
+            a();
+
+        }
+        b();//console print  10
+
+    </script>
+
+    <script>
+
+        var a = 1;
+        function test() {
+            console.log(a); //这里a为undefined
+            /*函数中声明的变量在整个函数中都有定义。如果函数内部有定义变量，即使在定义之前输出但会先执行后面定义语句，然后判断输出结果，所以说声明的变量在整个函数中都是起作用的。*/
+            var a = 2;
+        }
+        test();
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

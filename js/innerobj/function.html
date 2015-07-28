@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Point(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    Point.prototype.move = function (x, y) {
+        this.x += x;
+        this.y += y;
+    }
+    var p = new Point(1, 2);
+    console.log(Point);
+
+
+    console.log(new Point(1, 2));
+    console.log(p);
+    console.log(Object.prototype.toString.apply("123"))
+
+    var circle = {x: 1, y: 1, r: 2};
+    new Point(1, 1).move.apply(circle, [1, 2]);
+    console.log(circle);
+
+    var circle2 = {x: 1, y: 1, r: 2};
+    var circlemove = new Point(1, 2).move.bind(circle, [1, 2]);
+
+    setTimeout(function () {
+        alert('start');
+        console.log(circle2);
+        circlemove;
+    }, 5000);
+
+    //另外一种方式
+    function Circle2(x, y, r) {
+        Point.apply(this, [x, y]);//circle 调用Point构造器
+        this.r = r;
+    }
+    Circle2.prototype = new Point(1, 1);
+    delete Circle2.prototype.x;//用于删除某个原型属性
+    console.log(Circle2);
+    console.log('11111111111111');
+    //另外一种方式  可以简化成
+
+    function Circle3(x, y, r) {
+        Point.apply(this, [x, y]);//circle 调用Point构造器
+        this.r = r;
+    }
+    Circle3.prototype = Object.create(Point.prototype);
+    Circle3.prototype.constructor = Circle3;//不明白作用  订正 其实和下面的area是一个意思 这里constructor理解成 constructor方法
+    Circle3.prototype.area = function () {
+        return this.Math.PI * r * r;
+
+    }
+    console.log(Circle3);
+    console.log('22222');
+
+</script>
+<script>
+    //至传递
+    function plusplus(num) {
+        return ++num;
+    }
+    var count = 10;
+    var rel = plusplus(count);
+    console.log(count + ' ' + rel);//10  11
+
+
+    function setname(obj) {
+        obj.name = "obma";
+        obj = {name: "clinton"};
+    }
+    var persident = {name: "bush"};
+    setname(persident);
+    console.log(persident.name);//obma
+</script>
+
+</body>
+</html>
