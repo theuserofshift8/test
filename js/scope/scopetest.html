@@ -6,7 +6,7 @@
     <script>
         var x = 0;
         function a() {
-            alert(x);
+            console.log(x);
         }
         function b() {
             console.log(x);
@@ -17,7 +17,6 @@
         b();//console print  10
 
     </script>
-
     <script>
 
         var a = 1;
@@ -28,16 +27,32 @@
         test();
 
     </script>
-    <scrtipt>
-
-        var name="gloable";
-        if(true){
-        var name="local"
+    <script>
+        //js没有块级作用域 (different from function())
+        var name = "global1";
+        var name = "global2";
         console.log(name);
+        if (true) {
+            var name = "local"
+            console.log(name);
         }
         console.log(name)
-    </scrtipt>
+    </script>
+    <script>
+        function t(tag) {
+            if (tag) {
+                var scope = "ifscope";
+                for (var i = 0; i < 10; i++);
+            }
+            console.log("function t(tag):  " + scope + '  ' + i);
+        }
+        t(true);
+    </script>
+    <!--
+        　作用域链　start
+    -->
 
+    <!--作用域 end-->
 </head>
 <body>
 
