@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../A/js/jquery-1.10.2.js "></script>
+</head>
+<body>
+<table id="tble">
+    <tr>
+        <td style="border: 1px solid darkgray;">1</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">2</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">3</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">4</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">5</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">6</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">7</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">8</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">9</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid darkgray;">10</td>
+    </tr>
+</table>
+</body>
+<script>
+    var abc = function () {
+        var i = 0;
+        return function () {
+            return ++i;
+        };
+    }();
+    console.log(abc());
+    console.log(abc());
+    console.log(abc());
+</script>
+
+</html>
