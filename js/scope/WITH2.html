@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function test() {
+            var foo = 'abc';
+            var obj = {foo: 'bar'};
+            width(obj)
+            {
+                function f() {
+                    console.log(foo);
+                }
+
+                (function () {
+                    console.log(foo);
+                })();
+                f();
+            }
+        }
+        test();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
