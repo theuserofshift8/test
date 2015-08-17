@@ -1,0 +1,46 @@
+<html>
+<head>
+    <script>
+        var foo = "abc";
+        with ({
+            foo: "bar"
+        }) {
+            function f() {//函数定义 在gloable中 定义  访问gloable中的foo 变量
+                console.log(foo + '  f()');
+            };
+            (function () {//表达式 只有执行到时才会创建词法环境  由于这个表达式包裹在 with中  所以 这里会访问with创建的词法环境
+                console.log(foo + '    (function{})()');
+            })();
+            f();
+
+
+        }
+    </script>
+
+    <script>
+        try {
+            var e = 10;
+            throw  new Error();
+        } catch (e) {
+            function f2() {
+                console.log(e);
+            }
+
+            (function () {//catch 跟with相似  也是创建一个零食词法环境 e从 catch 中 e来
+                console.log(e);
+            })()
+        }
+        f2();
+
+    </script>
+    <script>
+	//带名称的函数表达式
+	(function A(){
+		A=1;
+		console.log(A);
+	})()
+	</script>
+
+</head>
+<body></body>
+</html>
