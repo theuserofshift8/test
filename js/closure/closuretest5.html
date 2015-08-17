@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        $('#input-search').on('input', function () {
+            var timeout;
+            var timer = function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    var $publisher = $("#search-tab .global-tab-active");
+                    var publisher;
+                    if ($publisher < 1) {
+                        publisher = 'institution';
+                    } else {
+                        publisher = $($publisher[0]).attr('supplier');
+                    }
+                    active_tree(tissues, publisher, '', '', '', $('#input-search').val());
+                    show_three();
+                    load_filter_lable();
+                }, 0);
+            }
+            return timer;
+        }())
+    </script>
+</head>
+<body>
+
+</body>
+</html>
