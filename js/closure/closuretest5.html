@@ -3,20 +3,36 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script src="../../require/scripts/util/jquery.js"></script>
     <script>
-        $('#input-search').on('input', function () {
-            var timeout;
-            var timer = function () {
-                clearTimeout(timeout);
-                timeout = setTimeout(function () {
-                    console.log($('#input-search').val());
-                }, 1000);
-            }
-            return timer;
-        }())
+        /*        var a;
+         clearTimeout(a);
+         console.log('aaaa');*/
+        /*        var SearhEvent = function () {
+         var timeout;
+         console.log('qqqq');
+         return function () {
+         clearTimeout(timeout);
+         timeout = setTimeout(function () {
+         console.log($('#input-search').val());
+         }, 1000);
+         }
+         }()*/
+        $(function () {
+            $('#input-search').on('input', function () {
+                var timeout;
+                return function () {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function () {
+                        console.log($('#input-search').val());
+                    }, 1000);
+                }
+            }())
+            console.log($('#input-search'));
+        })
     </script>
 </head>
 <body>
-
+<input type="text" id="input-search">
 </body>
 </html>
