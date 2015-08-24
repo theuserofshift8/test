@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .container {
+            display: -webkit-flex;
+            display: flex;
+            width: 70%;
+            border: 1px solid gray;
+            height: 50px;
+        }
+
+        .colu {
+            flex-direction: column;
+            width: 100px;
+        }
+
+        .div1 {
+            flex-grow: 0.5;
+        }
+
+        .input0 {
+            flex-grow: 8.5;
+            flex-basis: 50px; /*可以同时指定width和flex-basis 但是最终以flex-basis为准*/
+        }
+
+        .div2 {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="container div0">
+    <div class="colu div1"> 1</div>
+    <input class="colu input0" type="text">
+
+    <div class="colu div2">3</div>
+</div>
+</body>
+</html>
