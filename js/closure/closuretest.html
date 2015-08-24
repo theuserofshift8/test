@@ -40,25 +40,14 @@
 </table>
 </body>
 <script>
-    var handdlers = function (tds) {
-        for (var a = 0; a < tds.length; a++) {
-            tds[a].onclick = function () {
-                console.log(a);
-            }
-        }
-    }
-    /*this unnormal*/
-    var tds = document.getElementsByName('td');
-    console.log(tds);
-    handdlers(tds);
     /*this is normal */
-    /*       $(function () {
-     $('#tble tr').each(function (index) {
-     $(this).on('click', function () {
-     console.log(index);
-     })
-     })
-     })*/
+    $(function () {
+        $('#tble tr').each(function (index) {
+            $(this).on('click', function () {
+                console.log(index);
+            })
+        })
+    })
 </script>
 
 </html>

@@ -5,30 +5,26 @@
     <title></title>
     <script src="../../require/scripts/util/jquery.js"></script>
     <script>
-        /*        var a;
-         clearTimeout(a);
-         console.log('aaaa');*/
-        /*        var SearhEvent = function () {
-         var timeout;
-         console.log('qqqq');
-         return function () {
-         clearTimeout(timeout);
-         timeout = setTimeout(function () {
-         console.log($('#input-search').val());
-         }, 1000);
-         }
-         }()*/
         $(function () {
-            $('#input-search').on('input', function () {
+            $('#input-search2').on('input', function () {
                 var timeout;
                 return function () {
                     clearTimeout(timeout);
                     timeout = setTimeout(function () {
-                        console.log($('#input-search').val());
+                        console.log($('#input-search2').val());
                     }, 1000);
                 }
             }())
-            console.log($('#input-search'));
+        })
+
+        $(function () {
+            $('#input-search').on('input', function () {
+                var timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    console.log($('#input-search').val() + '  ' + Math.random());
+                }, 1000);
+            })
         })
     </script>
 </head>
