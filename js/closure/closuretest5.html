@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="../../require/scripts/util/jquery.js"></script>
-    <script>
-        $(function () {
-            $('#input-search2').on('input', function () {
-                var timeout;
-                return function () {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(function () {
-                        console.log($('#input-search2').val());
-                    }, 1000);
-                }
-            }())
-        })
 
-        $(function () {
-            $('#input-search').on('input', function () {
-                var timeout;
-                clearTimeout(timeout);
-                timeout = setTimeout(function () {
-                    console.log($('#input-search').val() + '  ' + Math.random());
-                }, 1000);
-            })
-        })
-    </script>
 </head>
 <body>
 <input type="text" id="input-search">
 </body>
 </html>
+<script>
+    $(function () {
+        $('#input-search2').on('input', function () {
+            var timeout;
+            return function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    console.log($('#input-search2').val());
+                }, 1000);
+            }
+        }())
+    })
+    //step one
+    $(function () {
+        $('#input-search').on('input', function () {
+            //while inputing  clear previsous ‘settimeout’
+            var timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(syso, 1000);
+        })
+    })
+    function syso() {
+        console.log($('#input-search').val() + '  ' + Math.random());
+    }
+</script>
