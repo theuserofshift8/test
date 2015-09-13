@@ -8,10 +8,12 @@
 <script src="/test/repository/require.js"></script>
 <script src="/test/repository/require-config.js"></script>
 <script>
-    require(['../scripts/custom/_r_binding_test', '../scripts/custom/_r_functionDefine_test'], function (factory) {
+    require(['jquery'], function () {
+    });
+    require(['/test/require/scripts/custom/_r_binding_test.js'], function (factory) {
         factory;
     });
-    require(['../scripts/custom/_r_functionDefine_test'], function () {
+    require(['/test/require/scripts/custom/_r_functionDefine_test.js'], function () {
     });
 </script>
 <div id="container">
