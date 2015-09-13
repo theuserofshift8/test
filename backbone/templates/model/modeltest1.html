@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src="../../repository/require.js"></script>
+    <script src="/test/repository/require.js"></script>
+    <script src="/test/repository/require-config.js"></script>
+    <script>
+        require(['jquery', 'underscore', 'backbone', 'domReady'], function (_$, _Backbone, underscore, _domReady) {
+            _domReady(function () {
+                alert('123123');
+            });
+        })</script>
 </head>
 <body>
 

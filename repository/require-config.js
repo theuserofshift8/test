@@ -5,7 +5,10 @@
 require.config({
     baseUrl: "/test/repository",
     paths: {
-        'jquery': 'jquery'
+        jquery: 'jquery',
+        domReady: 'domReady',
+        backbone: 'backbone-min',
+        underscore: 'underscore-min'
     }
 });
 
