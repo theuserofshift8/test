@@ -9,6 +9,13 @@ require.config({
         domReady: 'domReady',
         backbone: 'backbone-min',
         underscore: 'underscore-min'
+    },
+
+    shim: {
+        backbone: {
+            deps: ['jquery','underscore'],
+            exports: 'Backbone'
+        }
     }
 });
 
