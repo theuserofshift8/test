@@ -7,9 +7,8 @@
     <script src="/test/repository/require-config.js"></script>
     <script>
         var Person;
-        require([ 'backbone', 'domReady'], function (_Backbone, _domReady) {
-            _domReady(function () {
-                Person = _Backbone.Model.extend({
+        require(['backbone'], function (_Backbone) {
+            Person = _Backbone.Model.extend({
                     initialize: function () {
                         console.log('Person init....');
                     },
@@ -18,14 +17,18 @@
                         sex:'meal'
                     }
                 });
-                var  p=new Person();
-                console.log(p.birthday);
-                var  p2=new Person();
-                p2.set({birthdaty:'19991010',height:'180'});
-                console.log(p.get('birthdaty'));
-
-            });
         })</script>
+
+    <script>
+        window.document.ready = function () {
+            var p = new Person();
+            console.log(p.birthday);
+            var p2 = new Person();
+            p2.set({birthdaty: '19991010', height: '180'});
+            console.log(p.get('birthdaty'));
+        }
+
+    </script>
 </head>
 <body>
 
