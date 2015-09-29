@@ -1,3 +1,7 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
 .prosoer-container {
   background: transparent;
   background-image: -webkit-radial-gradient(50% 30%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
@@ -8,80 +12,104 @@
   top: 0;
   width: 100%;
   z-index: 100;
+  display: table;
+  height: 100%;
+  .tcell {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
 
+  }
 }
 
-.tcell {
-  margin: 0 auto;
-}
-
-#-home-offline-proposers {
-
+#-offline-proposers {
   position: relative;
-  width: 60%;
+  width: 90%;
   border: 1px solid gray;
-  overflow-x: hidden;
-  overflow-y: auto;
   box-shadow: 0 15px 80px 15px rgba(0, 0, 0, 0.5);
   background-color: white;
-  //min-height: 330px;
-  max-height: 80%;
-  position: fixed;
-  top: 50%;
-  .close-button {
-    position: absolute;
-    right: 0;
-    top: 0;
+  min-height: 10%;
+  max-height: 90%;
+  height: auto;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  tr.odd {
+    background-color: rgb(243, 242, 242);
   }
-  .base-tittle {
-    min-height: 20px;
-    border-bottom: 1px solid gray;
-  }
-  .paid {
-    max-height: 90%;
-  }
-  .pending {
-    min-height: 100px;
+  #cleared {
+    td {
+      text-align: center;
+    }
+    thead {
+      background-color: rgb(58, 154, 252);
+    }
 
   }
-
-  .waitingpayment {
-    min-height: 100px;
-
-  }
-  .tittle {
-    border-top: 1px solid gray;
-    white-space: nowrap;
-    display: flex;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box; /* Firefox */
-    -webkit-box-sizing: border-box; /* Safari */
-    margin-right: 5px;
-    > div {
-      width: 15%;
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      -moz-box-sizing: border-box; /* Firefox */
-      -webkit-box-sizing: border-box; /* Safari */
-      margin-right: 5px;
+  #pending-payment {
+    td {
+      text-align: center;
+    }
+    thead {
+      background-color: rgb(58, 154, 252);
     }
   }
-  .infos {
-    display: flex;
-    white-space: nowrap;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box; /* Firefox */
-    -webkit-box-sizing: border-box; /* Safari */
-    margin-right: 5px;
-    > div {
-      box-sizing: border-box;
-      -moz-box-sizing: border-box; /* Firefox */
-      -webkit-box-sizing: border-box; /* Safari */
-      margin-right: 5px;
-      width: 15%;
-      overflow: hidden;
-      white-space: nowrap;
+  #pending-confirm {
+    td {
+      text-align: center;
+    }
+    thead {
+      background-color: rgb(58, 154, 252);
     }
   }
+  }
+
+.name-fee-container {
+  position: relative;
+  .name-fee {
+    display: inline-block;
+    padding-right: 30px;
+      box-sizing: border-box;
+    .course-name {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+    .course-fee {
+      padding: 0;
+      margin: 0;
+      font-size: 30px;
+    }
+    }
+
+  }
+
+.payment-stat {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  > h4 {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: baseline;
+    }
+  }
+
+#cleared_paginate {
+  background-color: #FFFFFF;
+  text-align: center;
+  float: none;
+}
+
+#pending-payment_paginate {
+  background-color: #FFFFFF;
+  text-align: center;
+  float: none;
+}
+
+#pending-confirm_paginate {
+  background-color: #FFFFFF;
+  text-align: center;
+  float: none;
 }

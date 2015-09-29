@@ -1,123 +1,229 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+
     <link rel="stylesheet" href="proposer.css">
-
+    <link rel="stylesheet" type="text/css" href="/test/workbeanch/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="/test/workbeanch/resources/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="/test/workbeanch/resources/demo.css">
+    <style type="text/css" class="init">
+    </style>
     <script src="/test/repository/jquery.js"></script>
-
+    <script type="text/javascript" language="javascript" src="/test/workbeanch/media/js/jquery.dataTables.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="/test/workbeanch/resources/syntax/shCore.js">
+    </script>
+    <script type="text/javascript" language="javascript" src="/test/workbeanch/resources/demo.js">
+    </script>
+    <script type="text/javascript" language="javascript" class="init"></script>
+    <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script>
-
-        var proposers;
+        var _proposer_xhrstat = 0;
         function f1() {
-            var tmplate = _.template($('#-home-offline-proposers').html());
-            alert(tmplate);
+            //var  datekey=;
+            $('.course-cleared:first').children().remove();
+            $('.pending-payment:first').children().remove();
+            $('.pending-confirm:first').children().remove();
+            var t = _.template($("#tb1").html());
+            $(".course-cleared:first").html(t());
+            $('#cleared').DataTable({
+                "searching": false,
+                "lengthChange": false,
+                "ajax": "objects.txt",
+                "bInfo": false,
+                "bScrollCollapse": true,
+                "columns": [
+                    {
+                        "data": "name",
+                        "orderable": false
+                    },
+                    {"data": "position"},
+                    {
+                        "data": "office",
+                        "orderable": false
+                    },
+                    {
+                        "data": "start_date",
+                        "orderable": false
+                    },
+                    {
+                        "data": "salary",
+                        "orderable": false
+                    }
+                ]
+            });
+        }
+        function f2() {
+            //var  datekey=;
+            $('.course-cleared:first').children().remove();
+            $('.pending-payment:first').children().remove();
+            $('.pending-confirm:first').children().remove();
+            var t = _.template($("#tb2").html());
+            $(".pending-payment:first").html(t());
+            $('#pending-payment').DataTable({
+                "searching": false,
+                "lengthChange": false,
+                "ajax": "objects.txt",
+                "bInfo": false,
+                "bScrollCollapse": true,
+                "bProcessing": true,
+                "columns": [
+                    {
+                        "data": "name",
+                        "orderable": false
+                    },
+                    {"data": "position"},
+                    {
+                        "data": "office",
+                        "orderable": false
+                    },
+                    {
+                        "data": "start_date",
+                        "orderable": false
+                    },
+                    {
+                        "data": "salary",
+                        "orderable": false
+                    },
+                    /*{
+                     "className": 'confirm',
+                     "data": null,
+                     "defaultContent": '<div onlcick="cfirm();">confirm</div>'
+                     }*/
+                ],
+                "columnDefs": [
+                    {
+                        "targets": [5],
+                        "data": "name",
+                        "render": function (data, type, full) {
+                            if (data == 'A') {
+                                return "<div onlcick='cfirm();'>confirm</div>";
+                            } else {
+                                return "<div >confirmed</div>";
+                            }
+                        }
+                    }]
+            });
+        }
+        function f3() {
+            $('.course-cleared:first').children().remove();
+            $('.pending-payment:first').children().remove();
+            $('.pending-confirm:first').children().remove();
+            var t = _.template($("#tb3").html());
+            $(".pending-confirm:first").html(t());
+            $('#pending-confirm').DataTable({
+                "searching": false,
+                "lengthChange": false,
+                "ajax": "objects.txt",
+                "bInfo": false,
+                "bScrollCollapse": true,
+                "columns": [
+                    {
+                        "data": "name",
+                        "orderable": false
+                    },
+                    {"data": "position"},
+                    {
+                        "data": "office",
+                        "orderable": false
+                    },
+                    {
+                        "data": "start_date",
+                        "orderable": false
+                    },
+                    {
+                        "data": "salary",
+                        "orderable": false
+                    }
+                ],
+                "columnDefs": [
+                    {
+                        "targets": [5],
+                        "data": "name",
+                        "render": function (data, type, full) {
+                            if (data == 'A') {
+                                return "<div onlcick='cle();'>cancle</div>";
+                            } else {
+                                return "<div >cancled</div>";
+                            }
+                        }
+                    }]
+            });
+
         }
     </script>
 </head>
-<button onclick="f1();">1</button>
-<button onclick="f1();">1</button>
-<button onclick="f1();">1</button>
 <div class="prosoer-container">
-
     <div class="tcell">
-        <div id="-home-offline-proposers">
-            <div class="base-tittle">
-                <button class="close-button">
-                    <i class="icon fa fa-remove"></i>
-    <span class="sr">
-    Close
-    </span></button>
-                <div class="base-info"></div>
+        <div id="-offline-proposers" data-key="">
+            <div class="name-fee-container" style="width: 90%;margin: 5px auto;height:auto;position: relative;">
+                <div class="name-fee">
+                    <h6 class='course-name'>Course Name</h6>
+                    <h4 class='course-fee'>Chris Course</h4>
+                </div>
+                <div class="name-fee">
+                    <h6 class='course-name'>Course Fee</h6>
+                    <h4 class='course-fee'>$100</h4>
+                </div>
             </div>
-            <div class="paid">
-                <div class="stat">Paid</div>
-                <div class="tittle">
-                    <div>Account ID</div>
-                    <div>Paid Time</div>
-                    <div>Register Time</div>
-                    <div>Mail</div>
-                    <div>Phone no</div>
-                </div>
-
-                <div class="infos">
-                    <div>111111111111111</div>
-                    <div>2222222222222222222</div>
-                    <div>4444444444444444444444444444</div>
-                    <div>a</div>
-                    <div>Psadasdasdasdashone no</div>
-
-                </div>
-                <div class="infos">
-                    <div>111111111111111</div>
-                    <div>2222222222222222222</div>
-                    <div>4444444444444444444444444444</div>
-                    <div>a</div>
-                    <div>Psadasdasdasdashone no</div>
-
-                </div>
-                <div class="infos">
-                    <div>111111111111111</div>
-                    <div>2222222222222222222</div>
-                    <div>4444444444444444444444444444</div>
-                    <div>a</div>
-                    <div>Psadasdasdasdashone no</div>
-
-                </div>
-                <div class="infos">
-                    <div>111111111111111</div>
-                    <div>2222222222222222222</div>
-                    <div>4444444444444444444444444444</div>
-                    <div>a</div>
-                    <div>Psadasdasdasdashone no</div>
-
-                </div>
-                <div class="infos">
-                    <div>111111111111111</div>
-                    <div>2222222222222222222</div>
-                    <div>4444444444444444444444444444</div>
-                    <div>a</div>
-                    <div>Psadasdasdasdashone no</div>
-
-                </div>
-                <div class="infos">
-                    <div>111111111111111</div>
-                    <div>2222222222222222222</div>
-                    <div>4444444444444444444444444444</div>
-                    <div>a</div>
-                    <div>Psadasdasdasdashone no</div>
-
-                </div>
-
-                <div class="waitingpayment">
-                    <div class="stat">Waiting For Payment</div>
-                    <div class="tittle">
-                        <div>Account ID</div>
-                        <div>Paid Time</div>
-                        <div>Register Time</div>
-                        <div>Mail</div>
-                        <div>Phone no</div>
-                    </div>
-                    <div class="infos"></div>
-
-                </div>
-
-                <div class="pending">
-                    <div class="stat">Pending Confirmationd</div>
-                    <div class="tittle">
-                        <div>Account ID</div>
-                        <div>Paid Time</div>
-                        <div>Register Time</div>
-                        <div>Mail</div>
-                        <div>Phone no</div>
-                    </div>
-                    <div class="infos"></div>
-                </div>
-
-                <div class="message"></div>
+            <div class="payment-stat" style="width: 90%;margin: 5px auto;height:auto;position: relative;">
+                <h4 class="cleared" onclick="f1();">Payment cleared |</h4> <h4 class="pay" onclick="f2();">
+                Pending Payment |</h4> <h4 class="confirm" onclick="f3();">Pending Confirmation </h4>
             </div>
-    </div>
+            <div style="height:auto;position: relative; ">
+                <div class="course-cleared" style="width: 90%;margin: 0 auto;height:auto;position: relative;">
+                </div>
+                <div class="pending-payment" style="width: 90%;margin: 0 auto;height:auto;position: relative;">
+                </div>
+                <div class="pending-confirm" style="width: 90%;margin: 0 auto;height:auto;position: relative;">
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
+<script type="text/template" id="tb1">
+    <table id="cleared" class="row-border" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>Payment Made</th>
+            <th>Register Time</th>
+            <th>Email</th>
+            <th>Phone no</th>
+        </tr>
+        </thead>
+    </table></script>
+<script type="text/template" id="tb2">
+    <table id="pending-payment" class="row-border" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>Payment Made</th>
+            <th>Register Time</th>
+            <th>Email</th>
+            <th>Phone no</th>
+            <th>Status</th>
+
+        </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/template" id="tb3">
+    <table id="pending-confirm" class="row-border" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>Payment Made</th>
+            <th>Register Time</th>
+            <th>Email</th>
+            <th>Phone no</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+    </table>
+</script>
 </body>
 
 </html>
