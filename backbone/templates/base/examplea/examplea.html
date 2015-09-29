@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="/test/repository/jquery.min.js"></script>
+    <script src="/test/repository/underscore-min.js"></script>
+    <script src="/test/repository/backbone-min.js"></script>
+    <script>
+        $(function () {
+            var liview = Backbone.View.extend({
+                el: $('body'),
+                initialized: function () {
+                    _.bindAll(this, 'render');
+                    this.render;
+                },
+                render: function () {
+                    $(this.el).append("<ul> <li>hello world</li> </ul>");
+                }
+            });
+
+            new liview();
+        })
+
+    </script>
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
