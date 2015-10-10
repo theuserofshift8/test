@@ -30,16 +30,18 @@
 	"use strict";
 
 	if ( typeof define === 'function' && define.amd ) {
-		// Define as an AMD module if possible
-		define( 'datatables', ['jquery'], factory );
+		// AMD
+		define( ['jquery'], factory );
 	}
 	else if ( typeof exports === 'object' ) {
-		// Node/CommonJS
-		module.exports = factory( require( 'jquery' ) );
+		// CommonJS
+		module.exports = function ($) {
+			// Get jQuery if it wasn't passed in
+			return factory( $ || require('jquery') );
+		};
 	}
-	else if ( jQuery && !jQuery.fn.dataTable ) {
-		// Define using browser globals otherwise
-		// Prevent multiple instantiations if the script is loaded twice
+	else {
+		// Browser
 		factory( jQuery );
 	}
 }
@@ -4183,7 +4185,7 @@
 			for ( i=0 ; i<columnCount ; i++ ) {
 				var colIdx = _fnVisibleToColumnIndex( oSettings, i );
 	
-				if ( colIdx ) {
+				if ( colIdx !== null ) {
 					columns[ colIdx ].sWidth = _fnStringToCss( headerCells.eq(i).width() );
 				}
 			}
@@ -9227,6 +9229,7 @@
 	$.each( [ 'column', 'row', 'cell' ], function ( i, type ) {
 		_api_register( type+'s().every()', function ( fn ) {
 			var opts = this.selector.opts;
+			var api = this;
 	
 			return this.iterator( type, function ( settings, arg1, arg2, arg3, arg4 ) {
 				// Rows and columns:
@@ -9240,7 +9243,7 @@
 				//  arg3 - table counter
 				//  arg4 - loop counter
 				fn.call(
-					new _Api( settings )[ type ](
+					api[ type ](
 						arg1,
 						type==='cell' ? arg2 : opts,
 						type==='cell' ? opts : undefined

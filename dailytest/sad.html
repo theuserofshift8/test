@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    $('body').append('  a');
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    $('body').append('  b');
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+        // 现在window.$和window.jQuery是1.7版本:
+        console.log($().jquery); // => '1.7.0'
+        var $jq = jQuery.noConflict(true);
+        // 现在window.$和window.jQuery被恢复成1.5版本:
+        console.log($jq().jquery); // => '1.7.0'
+        console.log($().jquery); // => '1.6.0'
+        // 可以通过$jq访问1.11版本的jQuery了
+    </script>
+</head>
+<body>
+
+</body>
+</html>
