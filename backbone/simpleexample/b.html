@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+<script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.6/underscore-min.js"></script>
+<script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+<script>
+    (function ($) {
+        var ListView = Backbone.View.extend({
+            el: $('body'),
+            events: {'click button#add': 'addItem'},
+            initialize: function () {
+                _.bindAll(this, 'render', 'addItem');
+                this.counter = 0;
+                this.render();
+            },
+            render: function () {
+                $(this.el).append("<button id='add'>Add list item</button>");
+                $(this.el).append('<ul></ul>');
+            },
+            addItem: function () {
+                this.counter++;
+                $('ul', this.el).append("<li>hello world" + this.counter + "</li>");
+            }
+        });
+        var listView = new ListView();
+
+    })(jQuery)
+</script>
+</body>
+</html>
