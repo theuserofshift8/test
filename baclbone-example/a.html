@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/test/repository/jquery.js"></script>
+    <script src="/test/repository/underscore-min.js"></script>
+    <script src="/test/repository/backbone-min.js"></script>
+</head>
+<body>
+<button id="check">.........</button>
+</body>
+</html>
+<script>
+    (function ($) {
+        World = Backbone.Model.extend({
+            name: null
+        });
+
+        Worlds = Backbone.Collection.extend({
+            initialize: function (model, options) {
+                this.bind('add', options.view.addOneWorld);
+            }
+        });
+
+        WorldView = Backbone.View.extend({
+            el: $('body'),
+            initialize: function () {
+                this.worlds = new Worlds(null, {view: this});
+            },
+            events: {
+                'click #check': 'checkIn'
+            },
+            checkIn: function () {
+                var world_name = prompt('输入姓名');
+                if (world_name == "")world_name = '未知';
+                var world = new World({name: world_name});
+                this.worlds.add(world);
+            },
+            addOneWorld: function (model) {
+                $('body').append("<li>这里是来自 <b>" + model.get('name') + "</b> 星球的问候：hello world！</li>");
+            }
+        });
+        var worldview = new WorldView;
+
+    })(jQuery)
+</script>
