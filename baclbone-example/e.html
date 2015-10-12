@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/test/repository/jquery.js"></script>
+    <script src="/test/repository/underscore-min.js"></script>
+    <script src="/test/repository/backbone-min.js"></script>
+</head>
+<body>
+
+<script>
+    var AppRouter = Backbone.Router.extend({
+
+        routes: {
+            "posts/:id": "getPost",
+            "*actions": "defaultRoute"
+        },
+
+        getPost: function (id) {
+            alert(id);
+        },
+
+        defaultRoute: function (actions) {
+            alert(actions);
+        }
+    });
+
+    var app_router = new AppRouter;
+    Backbone.history.start();
+
+
+</script>
+
+<a href="#/posts/120">Post 120</a>
+
+</body>
+</html>
