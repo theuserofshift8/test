@@ -11,7 +11,6 @@ require.config({
         underscore: 'underscore-min',
         datatable: 'DataTables/media/js/jquery.dataTables'
     },
-
     shim: {
         backbone: {
             deps: ['jquery', 'underscore'],
