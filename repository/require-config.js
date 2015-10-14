@@ -9,7 +9,7 @@ require.config({
         domReady: 'domReady',
         backbone: 'backbone-min',
         underscore: 'underscore-min',
-        datatable: 'https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min'
+        datatable: 'DataTables/media/js/jquery.dataTables'
     },
 
     shim: {
