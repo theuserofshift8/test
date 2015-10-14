@@ -8,12 +8,13 @@ require.config({
         jquery: 'jquery',
         domReady: 'domReady',
         backbone: 'backbone-min',
-        underscore: 'underscore-min'
+        underscore: 'underscore-min',
+        datatable: 'https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min'
     },
 
     shim: {
         backbone: {
-            deps: ['jquery','underscore'],
+            deps: ['jquery', 'underscore'],
             exports: 'Backbone'
         }
     }

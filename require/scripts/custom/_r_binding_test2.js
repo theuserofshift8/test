@@ -4,7 +4,7 @@
 define(['jquery', 'domReady'], function ($, _domReady) {
     _domReady(function () {
         $('#container button').on('click', function () {
-            console.log('123123');
+            $("#container").DataTable();
         })
     })
 })
