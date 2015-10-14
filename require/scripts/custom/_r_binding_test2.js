@@ -3,7 +3,10 @@
  */
 define(['jquery', 'domReady', 'datatable'], function ($, _domReady) {
     _domReady(function () {
-        $('#container button').on('click', function () {
+        $('#bt1').on('click', function () {
+            $("#example22").DataTable();
+        })
+        $('#bt2').on('click', function () {
             $("#example22").DataTable();
         })
     })
