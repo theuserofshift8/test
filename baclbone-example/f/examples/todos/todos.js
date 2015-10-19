@@ -97,6 +97,7 @@ $(function(){
 
     // Re-render the titles of the todo item.
     render: function() {
+      console.log(this.$el.html());
       this.$el.html(this.template(this.model.toJSON()));
       this.$el.toggleClass('done', this.model.get('done'));
       this.input = this.$('.edit');
@@ -109,7 +110,8 @@ $(function(){
     },
 
     // Switch this view into `"editing"` mode, displaying the input field.
-    edit: function() {
+    edit: function () {
+      console.log(this.$el.html());
       this.$el.addClass("editing");
       this.input.focus();
     },
@@ -121,6 +123,7 @@ $(function(){
         this.clear();
       } else {
         this.model.save({title: value});
+        console.log(this.$el.html());
         this.$el.removeClass("editing");
       }
     },
