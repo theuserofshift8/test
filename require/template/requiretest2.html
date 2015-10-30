@@ -16,19 +16,32 @@
 </script>-->
 <script>
 
-    require(['/test/require/scripts/custom/_r_binding_test2.js'], function (factory) {
+    /*    require(['/test/require/scripts/custom/_r_binding_test2.js'], function (factory) {
         factory
         console.log(new Date());
     })
-    console.log(new Date());
+     console.log(new Date());*/
 
 </script>
 <script>
 
-    require(['//code.jquery.com/jquery-1.7.1.min.js'], function (factory) {
+    /* require(['//code.jquery.com/jquery-1.7.1.min.js'], function (factory) {
         console.log(new Date());
     })
-    console.log(new Date());
+     console.log(new Date());*/
+
+</script>
+
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="/test/workbeanch/media/js/jquery.dataTables.js"></script>
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    $(function () {
+        $("#example1").DataTable({});
+    })
+</script>
+
+<script>
 
 </script>
 <table id="example1" class="display" cellspacing="0" width="100%">
