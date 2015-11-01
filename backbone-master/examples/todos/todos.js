@@ -122,6 +122,16 @@ $(function () {
         tagName: "li",
 
         // Cache the template function for a single item.
+        /*
+         <script type="text/template" id="item-template">
+         <div class="view">
+         <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+         <label><%- title %></label>
+         <a class="destroy"></a>
+         </div>
+         <input class="edit" type="text" value="<%- title %>" />
+         </script>
+         */
         template: _.template($('#item-template').html()),
 
         // The DOM events specific to an item.
