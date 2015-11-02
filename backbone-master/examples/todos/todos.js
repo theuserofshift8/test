@@ -155,7 +155,10 @@ $(function () {
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
             this.$el.toggleClass('done', this.model.get('done'));
+            console.log(this.input);
             this.input = this.$('.edit');
+            console.log(this.input);
+
             return this;
         },
 
@@ -167,7 +170,9 @@ $(function () {
         // Switch this view into `"editing"` mode, displaying the input field.
         edit: function () {
             this.$el.addClass("editing");
+            console.log(this.input);
             this.input.focus();
+
         },
 
         // Close the `"editing"` mode, saving changes to the todo.
