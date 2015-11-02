@@ -232,7 +232,6 @@ $(function () {
 
             this.footer = this.$('footer');
             this.main = $('#main');
-
             Todos.fetch();
         },
 
@@ -241,7 +240,6 @@ $(function () {
         render: function () {
             var done = Todos.done().length;
             var remaining = Todos.remaining().length;
-
             if (Todos.length) {
                 this.main.show();
                 this.footer.show();
@@ -250,7 +248,6 @@ $(function () {
                 this.main.hide();
                 this.footer.hide();
             }
-
             this.allCheckbox.checked = !remaining;
         },
 
