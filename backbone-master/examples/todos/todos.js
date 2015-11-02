@@ -158,7 +158,6 @@ $(function () {
             console.log(this.input);
             this.input = this.$('.edit');
             console.log(this.input);
-
             return this;
         },
 
@@ -170,7 +169,6 @@ $(function () {
         // Switch this view into `"editing"` mode, displaying the input field.
         edit: function () {
             this.$el.addClass("editing");
-            console.log(this.input);
             this.input.focus();
 
         },
