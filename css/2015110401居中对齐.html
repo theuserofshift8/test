@@ -15,7 +15,17 @@
 </table>
 <div style="display: table;width: 100%;text-align: center">
     <div style="width: 300px;height: 400px;border: 1px solid;margin: auto;display: table-cell;vertical-align: middle;">
-        vertical-align:middle /**vertical-align不支持 块级元素 只有转成表格元素才有用*/
+        vertical-align:middle /**vertical-align不支持 块级元素 只有转成表格元素才有用 并且ie 6 7  不支持该属性 */
+    </div>
+</div>
+
+<div style=" #position: absolute; #top: 50%;display: table-cell; vertical-align: middle;">
+    <div class="greenBorder" style="#position: relative; #top: -50%; ">
+        兼容ie6的方式
+        any text<br>
+        any height<br>
+        any content, for example generated from DB<br>
+        everything is vertically centered
     </div>
 </div>
 </body>
