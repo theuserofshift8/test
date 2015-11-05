@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>宽度自适应布局</title>
+    <style> body, div {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        height: 200px;
+        color: #F00;
+    }
+
+    .left {
+        float: left;
+        width: 100px;
+        background: #00f;
+        _margin-right: -3px;
+    }
+
+    .right {
+        float: right;
+        width: 100px;
+        background: #0f0;
+        _margin-left: -3px;
+    }
+
+    .center {
+        background: #333;
+        margin: 0 100px;
+        _margin: 0 97px;
+    } </style>
+</head>
+<body>
+<div class="left">我是left</div>
+<div class="right">我是right</div>
+<div class="center">我是center</div>
+
+</body>
+</html>
