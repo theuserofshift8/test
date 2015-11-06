@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+1、什么是闭包
+    闭包，官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。闭包的特点：
+    1. 作为一个函数变量的一个引用，当函数返回时，其处于激活状态。
+    2. 一个闭包就是当一个函数返回时，一个没有释放资源的栈区。
+       简单的说，Javascript允许使用内部函数—即函数定义和函数表达式位于另一个函数的函数体内。
+       而且，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。
+       当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。-->
+
+
+<!--
+2 常见写法
+
+    -->
+
+<script>
+    //No.1
+    var Circle = function (r) {
+        this.r = r;
+    }
+    Circle.PI = 3.14159;
+    Circle.prototype.area = function () {
+        //error return PI * r * r;
+        //wrong return this.PI * this.r * this.r;
+        return Circle.PI * this.r * this.r;
+    }
+    var circle1 = new Circle(1)
+    console.log(circle1.area());
+
+    //No.2
+    var Rectangle = function () {
+        var area = function (length, width) {
+            return length * width;
+        }
+        return area;
+    }
+
+    var f_area = new Rectangle();
+    //error console.log(f_area.area(4, 5))
+    console.log(f_area(4, 5));
+
+    //No.3
+    var Triangle = new Object();
+    Triangle.area = function (bottom, height) {
+        return bottom * height / 2;
+    }
+    console.log(Triangle.area(1, 5))
+
+    //No.4
+    var trapezoid = {
+        "area": function (top, bottom, height) {
+            return (top + bottom) * height / 2;
+        }
+    }
+
+    console.log(trapezoid.area(2, 1, 5));
+
+    /*我们首先声明一个变量，将一个函数赋给他，因为在Javascript中每个函数都有一个Portotype属性，而对象没有。
+     添加两个方法，分别直接添加和添加打破Prototype上面，来看下调用情况。分析结果如下：
+     1、不使用prototype属性定义的对象方法，是静态方法，只能直接用类名进行调用！另外，此静态方法中无法使用this变量来调用对象其他的属性！
+     2、使用prototype属性定义的对象方法，是非静态方法，只有在实例化后才能使用！其方法内部可以this来引用对象自身中的其他属性！*/
+
+
+    var dom = function () {
+    }
+    dom.show = function () {
+        console.log("1");
+    }
+    dom.prototype.display = function () {
+        console.log("2");
+    }
+    //error  dom.display();
+    new dom().display();//right
+    //error  new dom().show()
+    dom.show();//right
+
+</script>
+</body>
+</html>
