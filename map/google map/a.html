@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+    function initMap(mapid, address) {
+        var map = new google.maps.Map(document.getElementById(mapid), {
+            zoom: 16,
+            center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map, address);
+    }
+    function geocodeAddress(geocoder, resultsMap, address) {
+        geocoder.geocode({'address': address}, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+
+                if (status == "ZERO_RESULTS") {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                }
+
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+    $(function () {
+        var map_address = "啊时间到啦啊但还";
+        initMap("map1", map_address);
+    })
+
+
+</script>
+
+<div id="map1"></div>
+</body>
+</html>
