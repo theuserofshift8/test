@@ -5,6 +5,20 @@
     <title></title>
 </head>
 <body>
+<script>
+    /**对象是函数创建的，而函数却又是一种对象.
+     *  函数和对象之间的关系从prototype说起*/
+    /**默认的:函数都有一个属性 prototype*/
+    var Person = function () {
+    }
+    console.log(Person);
+    var Person2 = function () {
+    }
+    Person2.prototype.say = function () {
+    }
+    Person2.prototype.age = 27;
+    console.log(Person2);
 
+</script>
 </body>
 </html>
