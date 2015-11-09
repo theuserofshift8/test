@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    /** 匿名自执行*/
+    var data = {
+        table: [],
+        tree: {}
+    };
+    (function (dm) {
+
+    })(data);
+    /**结果缓存*/
+
+    var cachedsearchbox = (function () {
+        var cache = [];
+        return {
+            attach: function (id) {
+                if (id in  cache) {
+                } else {
+                }
+            }
+        }
+
+    })()
+
+
+    /**封装*/
+
+
+    var person = function () {
+        var name = undefined;
+        return {
+            getName: function () {
+                return this.name;
+            },
+            setName: function (newname) {
+                this.name = newname;
+            }
+        }
+    }()
+    console.log(person.name);
+    person.setName("..");
+    console.log(person.getName());
+
+    /** 实现类 和 继承*/
+    function Person() {
+        var name = "default";
+        return {
+            getName: function () {
+                return name;
+            },
+            setName: function (newName) {
+                name = newName;
+            }
+        }
+    }
+    var p = new Person();
+    p.setName("Tom");
+    console.log(p.getName());
+
+
+    var Jack = function () {
+    };
+    //继承自Person
+    Jack.prototype = new Person();
+    //添加私有方法
+    Jack.prototype.Say = function () {
+        return this.getName();
+    }
+    var j = new Jack();
+    console.log(j.Say());
+    j.setName("Jack");
+    console.log(j.getName());
+
+    /**  example*/
+    /*    $('#input-search').on('input', function (e) {
+     var timeout;
+     var timer = function () {
+     clearTimeout(timeout);
+     timeout = setTimeout(function () {
+     //show();
+     }, 800);
+     }
+     return timer;
+     }())*/
+</script>
+</body>
+</html>

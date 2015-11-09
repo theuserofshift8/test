@@ -67,7 +67,8 @@
     /*我们首先声明一个变量，将一个函数赋给他，因为在Javascript中每个函数都有一个Portotype属性，而对象没有。
      添加两个方法，分别直接添加和添加打破Prototype上面，来看下调用情况。分析结果如下：
      1、不使用prototype属性定义的对象方法，是静态方法，只能直接用类名进行调用！另外，此静态方法中无法使用this变量来调用对象其他的属性！
-     2、使用prototype属性定义的对象方法，是非静态方法，只有在实例化后才能使用！其方法内部可以this来引用对象自身中的其他属性！*/
+     2、使用prototype属性定义的对象方法，是非静态方法，只有在实例化后才能使用！其方法内部可以this来引用对象自身中的其他属性！
+     */
 
     var dom = function () {
     }
@@ -83,6 +84,49 @@
     //error  new dom().show()
     dom.show();//right
     /*===================================================================================================================*/
+
+
+    /**/
+    var dom2 = function () {
+        var name = "default";
+        this.sex = "男";
+        this.success = function () {
+            console.log("ok");
+        }
+    }
+
+    /*error 需要new dom2*/
+    console.log(dom2.name);
+    /*error 需要new dom2*/
+    console.log(dom2.sex);
+
+
+    /*===================================================================================================================*/
+
+    var html = {
+        Name: 'Object',
+        Success: function () {
+            this.Say = function () {
+                alert("Hello,world");
+            };
+            alert("Obj Success");
+        }
+    };
+    /*
+     再来看看这种写法，其实这是Javascript的一个”语法糖”，这种写法相当于：
+
+     变量html是一个对象，不是函数，所以没有Prototype属性，其方法也都是公有方法，html不能被实例化。否则会出现如下错误：
+
+     uncatched typeerror  :object is not a function
+     */
+    var html = new Object();
+    html.Name = 'Object';
+    html.Success = function () {
+        this.Say = function () {
+            alert("Hello,world");
+        };
+        alert("Obj Success");
+    }
 
 </script>
 </body>
