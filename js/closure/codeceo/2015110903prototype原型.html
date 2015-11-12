@@ -7,17 +7,29 @@
 <body>
 <script>
     /**对象是函数创建的，而函数却又是一种对象.
-     *  函数和对象之间的关系从prototype说起*/
-    /**默认的:函数都有一个属性 prototype*/
+     * 函数和对象之间的关系从prototype说起
+     *默认的:函数都有一个属性 prototype*/
     var Person = function () {
     }
-    console.log(Person);
-    var Person2 = function () {
+    Person.prototype.say = function () {
     }
-    Person2.prototype.say = function () {
-    }
-    Person2.prototype.age = 27;
-    console.log(Person2);
+    Person.prototype.age = 27;
+    /**prototype 有什么用
+     * person._proto_ === Person.prototype
+     * */
+
+    var person = new Person();
+    console.log(person.age);//27
+    person.age = 12;
+    console.log(person.age);//12
+    /**
+     这样就可以调用person.age,person.say();
+     */
+    console.log(person.__proto__ == Person.prototype);//true
+    /** 每个对象(person)都有隐式的_prototype_属性 而这个属性引用了创建这个对象函数的prototype
+     * 即上面console中的内容
+     * 因此person可以调用say(),age.
+     * */
 
 </script>
 </body>
