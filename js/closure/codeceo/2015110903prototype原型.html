@@ -6,6 +6,7 @@
 </head>
 <body>
 <script>
+    console.log("----------------------start--------------------------");
     /**对象是函数创建的，而函数却又是一种对象.
      * 函数和对象之间的关系从prototype说起
      *默认的:函数都有一个属性 prototype*/
@@ -17,7 +18,6 @@
     /**prototype 有什么用
      * person._proto_ === Person.prototype
      * */
-
     var person = new Person();
     console.log(person.age);//27
     person.age = 12;
@@ -30,7 +30,14 @@
      * 即上面console中的内容
      * 因此person可以调用say(),age.
      * */
-
+    console.log("----------------------end----------------------------");
 </script>
+<div>
+    <p>
+        默认的每个函数 有一个prototype 属性
+        这个属性值是一个对象 ,这个对象默认的只有一个属性 constructor,该constructor 指向该函数本身
+    </p>
+    <img src="images/20151112163059.png"/>
+</div>
 </body>
 </html>

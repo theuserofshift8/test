@@ -6,13 +6,47 @@
 </head>
 <body>
 <script>
-    var Person = function () {
+
+    console.log("----------------------start--------------------------");
+    /**{}与new Object() 相同 属于糖式写法*/
+    /**每一个对象都有__proto__属性指向创建改对象的prototype属性*/
+    var obj = {};
+    var obj1 = new Object();
+    console.log(obj.__proto__ === Object.prototype);
+    console.log(obj.__proto__ === obj1.__proto__);
+    console.log(obj);
+    console.log("----------------------end----------------------------");
+
+    console.log("----------------------start--------------------------");
+    console.log("如图2 图3");
+    console.log("首先说说自定义函数的prototype");
+    var Foo = function () {
     }
-    Person.prototype.say = function () {
-    }
-    Person.prototype.age = 27;
-    var person = new Person();
-    console.log(person);
+    var foo = new Foo();
+    console.log("每个对象的__ptoto__ 对指向 创建该对象的函数的 prototyppe")
+    console.log("而prototype 也是一个对象 和var a={} 一样也是被Object创建");
+    console.log("因此该函数的 __proto__(这里的Foo的__proto__) 指向Object的prototype")
+    console.log("Object 的prototype 指向谁?  ")
+    console.log("另外要说明的是 Object的__prototype__ 指向null  ")
+    console.log("Object也是一个函数 Object.prototype 也是一个对象  因此他的prototype 也指向constructor  而constructor又指向 自己本身  ")
+    console.log("----------------------end----------------------------");
+
+    console.log("----------------------start--------------------------");
+    console.log("not the  end...");
+    console.log("函数(Funtion)也是对象   也有protoype  __proto__ 这些指向谁");
+    console.log("见终结 图4");
+    console.log("----------------------end----------------------------");
 </script>
+<div>
+    <p>图2</p>
+    <img src="images/20151112172151.png">
+
+    <p>图3</p>
+    <img src="images/20151112172611.png">
+
+    <p>图4</p>
+    <img src="images/20151112175807.png">
+
+</div>
 </body>
 </html>
