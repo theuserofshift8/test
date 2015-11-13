@@ -6,12 +6,37 @@
 </head>
 <body>
 
+
 <script>
+
+    console.log("函数在定义时  就已经决定了体内自由变量的 作用域");
+    console.log();
+    console.log();
+    console.log();
+    console.log();
+
+    console.log(">>>>>>>>block 执行上下文环境1<<<<<<<<")
+
     function f(x) {
         console.log(arguments);
         console.log(x);
     }
-    f(10)
+    f(10);
+    console.log(">>>>>>>>block 执行上下文环境1<<<<<<<<")
+    console.log();
+    console.log(">>>>>>>>block 执行上下文环境2<<<<<<<<")
+    console.log("example :");
+    var a = 10;
+    function fn() {
+        console.log(a);
+    }
+    function bar() {
+        var a = 100;
+        fn();
+    }
+    bar();
+    console.log(">>>>>>>>block 执行上下文环境2<<<<<<<<")
+
 </script>
 
 </body>
