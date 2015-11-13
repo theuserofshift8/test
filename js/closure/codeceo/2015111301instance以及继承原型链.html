@@ -7,9 +7,44 @@
 <body>
 <script>
     console.log("----------------------start--------------------------");
+    function Foo() {
+        this.c = 300;
+    }
+    console.log(">>>>>>block1<<<<<");
+    var f1 = new Foo();
+    f1.a = 10;
+    Foo.prototype.a = 100;
+    Foo.prototype.b = 200;
+    console.log(f1);
+    console.log(f1.a);
+    console.log(f1.b);
+    console.log(f1.c);
+
+    console.log("console.log(f1.prototype.a); error f1.prototype  is  undefined   f1 Foo new 出来的额");
+    console.log("f1 只有__proto__属性以及后面加上的a属性");
+    console.log("prototype只存在于 Foo上");
+    console.log("block1 中代码阐述了 一个对象在访问属性时 先从 基本属性中查找 如果找不到 则从__proto__中找 ")
+    console.log("__protot__ 指向 Foo.prototype  而上述代码为Foo 的prototype 上添加了 a,b两属性");
+    console.log(">>>>>>block1<<<<<");
+    console.log("----------------------end----------------------------");
+
+
+    console.log("----------------------start--------------------------");
+    console.log(">>>>>>block2<<<<<");
+    console.log("hasOwenProperty()");
+    var item;
+    for (var item in f1) {
+        console.log(item);
+    }
+    console.log("...")
+    for (var item in f1) {
+        if (f1.hasOwnProperty(item)) {//从没在f1上定义过hasOwenProperty() 那他从哪儿来的  当时继承过来的  来自Function
+            console.log(item);
+        }
+    }
+    console.log(">>>>>>block2<<<<<");
     console.log("----------------------end----------------------------");
 
 </script>
-
 </body>
 </html>
