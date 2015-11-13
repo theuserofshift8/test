@@ -7,6 +7,9 @@
 <body>
 <script>
     console.log(">>>>>>>>block 执行上下文环境1<<<<<<<<")
+
+    console.log("常见的输出一个变量时 会有下面集中情况 1 not defined(未定义),2undefined(未赋值),3其他[object,值,等]");
+
     console.log("example:");
     try {
         console.log(a);//a is not defined
@@ -17,9 +20,26 @@
         console.log(c);//undefined
         var c = 10;
     }
-
     console.log(">>>>>>>>block 执行上下文环境1<<<<<<<<")
+    console.log("");
+    console.log(">>>>>>>>block 执行上下文环境2<<<<<<<<")
+    console.log("一段js 真正运行前 会做点什么");
+    console.log("准备工作包括:")
+    console.log("  变量申明语句,函数表达式语句[var a=function(){}]--准备好变量申明,并赋值为undefined,");
+    console.log("  this 赋值")
+    console.log("  函数申明[function f1(){}]--准备好 给f1赋值 ")
 
+    console.log(a1);
+    var a1;
+    console.log(a2);
+    var a2 = function () {
+    };
+    console.log(a3);
+    function a3() {
+    }
+    ;
+
+    console.log(">>>>>>>>block 执行上下文环境2<<<<<<<<")
 
 </script>
 
