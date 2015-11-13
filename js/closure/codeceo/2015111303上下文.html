@@ -5,6 +5,23 @@
     <title></title>
 </head>
 <body>
+<script>
+    console.log(">>>>>>>>block 执行上下文环境1<<<<<<<<")
+    console.log("example:");
+    try {
+        console.log(a);//a is not defined
+    } catch (error) {
+        console.log(error);
+        console.log(b);//undefined
+        var b;
+        console.log(c);//undefined
+        var c = 10;
+    }
+
+    console.log(">>>>>>>>block 执行上下文环境1<<<<<<<<")
+
+
+</script>
 
 </body>
 </html>
