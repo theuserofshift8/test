@@ -11,7 +11,49 @@
         this.birthday = undefined;
         console.log(this);
     }
-    var foo = new Foo();
+    var foo = new Foo();//这种情况 console.log(this)中  this 输出的是 foo
+    Foo();//这种情况this输出的  window对象
+
+
+    var obj = {
+        x: 10,
+        fn: function () {
+            console.log(this);
+            console.log(this.x);
+        }
+    }
+    obj.fn();//这里fn中this代表 obj; x=10
+
+
+    var fn = obj.fn;
+    fn();//这里的x 是undefined this 是window
+
+
+    function add(a, b) {
+        console.log(a + b);
+    }
+    function sub(a, b) {
+        console.log(a - b);
+    }
+    add.call(sub, 3, 1);//add 替换  sub
+
+
+    var obj2 = {
+        x: 11
+    };
+    var fn2 = function () {
+        console.log(this);//obj2
+        console.log(this.x);
+    };
+    fn2.call(obj2);
+
+
+    function f() {
+        console.log(this);
+    }
+    f();//普通函数在调用时 this指的是 window
+
+
 </script>
 
 </body>
