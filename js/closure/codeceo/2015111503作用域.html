@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /**
+     * js 没有块级作用域 所谓块级作用域  就是 if(){}  for(){} 中的()    {}
+     * */
+    for (var i = 0; i < 10; i++) {
+        var j = i;
+    }
+    console.log(i);//9
+    console.log(j);//10
+
+
+    /**
+     * i,j都有值
+     * 除了 全局作用域除此之外  只有函数中可以有作用域
+     * 我们在声明变量时，全局代码要在代码前端声明，函数中要在函数体一开始就声明好。
+     * 除了这两个地方，其他地方都不要出现变量声明。而且建议用“单var”形式。
+     * */
+</script>
+</body>
+</html>
