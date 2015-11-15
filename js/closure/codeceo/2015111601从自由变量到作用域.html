@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /**
+     * 自由变量  在某个作用域使用  却没有在该作用域申明的变量 叫做自由变量
+     * */
+
+    var freeValue = 0;
+    function a() {
+        var v = 1;
+        console.log(v);//1
+        console.log(freeValue);//0
+    }
+    a();
+    /**
+     * 有人说 freeValue 是从父级去取值
+     * 其实这种说法并不准确
+     * 如下: 输出10 而不是20
+     * */
+
+    var x = 10;
+    function fn() {
+        console.log(x);
+    }
+
+    function show() {
+        var x = 20;
+        (fn())() //输出10  而不是20
+    }
+    /**
+     因此说成 到创建该函数的作用域找(如果找不到继续向上)
+     */
+
+    var ａ = 10;
+    var b = 100;
+    function fc() {
+        var a = 11
+
+        function bar() {
+            console.log(a + b);
+        }
+
+        return bar;
+    }
+    x = fc();
+    x();//x 代表bar 这个函数  bar 是在fc 中创建的 所以  bar中找不到b时 先去 创建他的地方去找 fc中也没有 那只能向上找
+</script>
+</body>
+</html>
