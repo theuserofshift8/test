@@ -13,23 +13,22 @@
      * 2:函数作为参数传递
      * */
     /**1函数作为返回值*/
-    /*    function max() {
-     var a = 10;
-     return function (x) {
-     if (x > a) {
-     console.log("max x:" + x)
-     } else {
-     console.log("max a:" + a)
-     }
-     }
-     }
-     var closura = max();
-     closura(90);*/
+    function max() {
+        var a = 10;
+        return function (x) {
+            if (x > a) {
+                console.log("max x:" + x)
+            } else {
+                console.log("max a:" + a)
+            }
+        }
+    }
+    var closura = max();
+    closura(90);
 </script>
 
 <script>
-
-    /**2
+    /**
      * 作为参数被传递
      * */
     var max = 10;
