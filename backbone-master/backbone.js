@@ -12,6 +12,7 @@
   var root = (typeof self == 'object' && self.self == self && self) ||
             (typeof global == 'object' && global.global == global && global);
 
+  
   // Set up Backbone appropriately for the environment. Start with AMD.
   if (typeof define === 'function' && define.amd) {
     define(['underscore', 'jquery', 'exports'], function(_, $, exports) {
