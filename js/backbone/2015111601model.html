@@ -3,9 +3,39 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script src="http://underscorejs.org/underscore.js"></script>
+    <script src="http://backbonejs.org/backbone.js"></script>
 </head>
 <body>
-<script src="resource/underscore.js"></script>
-<script src="resource/backbone.js"></script>
+
+<script>
+    var Man = Backbone.Model.extend({
+        defaults: {
+            name: undefined,
+            birthday: undefined
+        },
+        initialize: function () {
+            this.bind("change:name", function () {
+                console.log("now name is: " + this.get('name'));
+            });
+            this.bind("change:birthday", function () {
+                console.log("now birthday is: " + this.get('birthday'));
+            });
+            this.bind('invalid', function (model, error) {
+                console.log(error);
+            });
+        },
+        validate: function (attributes) {
+            if (attributes.name == "") {
+                return "name 不能为空!";
+            }
+        }
+    });
+    var man = new Man;
+    man.set({name: "bing", birthday: "88"});
+    man.set({name: ""}, {'validate': true});
+    console.log(man.get('name'));
+</script>
+
 </body>
 </html>
